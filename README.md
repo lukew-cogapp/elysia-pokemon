@@ -51,6 +51,8 @@ To start the server, run:
 bun dev
 ```
 
+This command will watch for file changes and restart the server as needed.
+
 The server should now be running at [http://localhost:3000](http://localhost:3000).
 
 ## API Documentation
@@ -107,16 +109,6 @@ Error responses are formatted as:
 - `/models` - Contains Elysia models for request and response validation.
 - `/services` - Abstracted service logic for fetching and transforming Pokémon data.
 - `/middleware` - Error handling and other middleware configurations.
-
-## Development
-
-To enable automatic reloading during development, run:
-
-```bash
-bun run dev
-```
-
-This command will watch for file changes and restart the server as needed.
 
 ## License
 
