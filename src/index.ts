@@ -27,11 +27,11 @@ new Elysia()
         transform({ params }) {
           const id = +params.id;
           if (!Number.isInteger(id)) throw new Error("Invalid Pokémon ID");
-          // if (Number.isNaN(id)) throw new Error("Invalid Pokémon ID");
           params.id = id;
         },
         detail: {
           tags: ["v1"],
+          description: "Returns details about a pokemon by ID",
         },
       }
     )
