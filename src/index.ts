@@ -29,7 +29,6 @@ new Elysia()
           if (!Number.isInteger(id)) throw new Error("Invalid Pokémon ID");
           // if (Number.isNaN(id)) throw new Error("Invalid Pokémon ID");
           params.id = id;
-          console.log(params.id);
         },
         detail: {
           tags: ["v1"],
