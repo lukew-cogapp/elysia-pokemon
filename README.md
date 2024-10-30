@@ -2,19 +2,6 @@
 
 A lightweight Pokémon API server built with [Elysia](https://elysia.js.org/) and powered by [Bun](https://bun.sh/). This server provides endpoints to fetch Pokémon details by ID, including validation and Swagger documentation for easy API exploration.
 
-## Table of Contents
-
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Environment Variables](#environment-variables)
-- [Running the Server](#running-the-server)
-- [API Documentation](#api-documentation)
-- [Endpoints](#endpoints)
-- [Error Handling](#error-handling)
-- [Project Structure](#project-structure)
-- [Development](#development)
-- [License](#license)
-
 ## Prerequisites
 
 - **Bun** - A fast, all-in-one JavaScript runtime that allows for easy installation, management, and execution of JavaScript projects.
