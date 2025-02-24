@@ -4,7 +4,7 @@ import { PokemonService } from "./services/pokemonService";
 import { PokemonParams, PokemonResponse } from "./models/pokemon";
 import { errorHandler } from "./middleware/errorHandler";
 
-new Elysia()
+const app = new Elysia()
   .use(
     swagger({
       documentation: {
@@ -19,19 +19,21 @@ new Elysia()
     app.get(
       "/pokemon/:id",
       async ({ params }) => {
-        return await PokemonService.getById(params.id);
+        return await PokemonService.getById(params.id); // ✅ params.id is now guaranteed to be a number
       },
       {
         params: PokemonParams,
         response: PokemonResponse,
         transform({ params }) {
-          const id = +params.id;
-          if (!Number.isInteger(id)) throw new Error("Invalid Pokémon ID");
-          params.id = id;
+          const id = Number(params.id); // ✅ Explicitly convert to number
+          if (!Number.isInteger(id)) {
+            throw new Error("Invalid Pokémon ID");
+          }
+          params.id = id; // ✅ Mutate params.id to be a number
         },
         detail: {
           tags: ["v1"],
-          description: "Returns details about a pokemon by ID",
+          description: "Returns details about a Pokémon by ID",
         },
       }
     )

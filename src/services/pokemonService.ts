@@ -22,7 +22,8 @@ export abstract class PokemonService {
 
     if (!response.ok) throw new Error(ERROR_MESSAGES.POKEMON_NOT_FOUND);
 
-    const data: PokemonAPIResponse = await response.json();
+    const data: PokemonAPIResponse =
+      (await response.json()) as PokemonAPIResponse;
 
     const types = data.types.map((typeEntry) => typeEntry.type.name);
 
@@ -30,7 +31,7 @@ export abstract class PokemonService {
     return {
       id: data.id,
       name: data.name,
-      sprite: data.sprites.front_default || "",
+      sprite: data.sprites.front_default ?? "",
       types,
     };
   }

@@ -1,7 +1,13 @@
-// /middleware/errorHandler.ts
 import { ERROR_MESSAGES, ERROR_STATUS } from "../constants/errors";
+import type { Context } from "elysia";
 
-export const errorHandler = ({ code, error, set }) => {
+export interface ErrorHandlerParams {
+  code?: string;
+  error: Error;
+  set: Context["set"];
+}
+
+export const errorHandler = ({ code, error, set }: ErrorHandlerParams) => {
   let status = ERROR_STATUS.SERVER_ERROR;
   let message = ERROR_MESSAGES.UNEXPECTED_ERROR;
 
